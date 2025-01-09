@@ -1,0 +1,38 @@
+﻿<Window x:Class="_233584_vp_task_1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_233584_vp_task_1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <!-- ComboBox for Filtering -->
+        <ComboBox Name="FilterComboBox" HorizontalAlignment="Left" Margin="10,5,0,389" Width="184" SelectionChanged="FilterComboBox_SelectionChanged">
+            <ComboBoxItem Content="All" IsSelected="True" />
+            <ComboBoxItem Content="Topic" />
+            <ComboBoxItem Content="Difficulty" />
+        </ComboBox>
+
+        <!-- DataGrid for Quiz Questions -->
+        <DataGrid x:Name="QuestionsDataGrid" Margin="0,60,20,40" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Question Text" Binding="{Binding QuestionText}" />
+                <DataGridTextColumn Header="Options" Binding="{Binding Options}" />
+                <DataGridTextColumn Header="Correct Answer" Binding="{Binding CorrectAnswer}" />
+                <DataGridTextColumn Header="Assigned Marks" Binding="{Binding AssignedMarks}" />
+                <DataGridTextColumn Header="Time Limit" Binding="{Binding TimeLimit}" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <!-- Buttons for Actions -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,10">
+            <Button Name="AddQuestionButton" Content="Add Question" Width="100" Margin="5" Click="AddQuestionButton_Click" />
+            <Button Name="EditQuestionButton" Content="Edit Question" Width="100" Margin="5" Click="EditQuestionButton_Click" />
+            <Button Name="DeleteQuestionButton" Content="Delete Question" Width="100" Margin="5" Click="DeleteQuestionButton_Click" />
+        </StackPanel>
+
+        <!-- ProgressBar for Loading -->
+        <ProgressBar Name="LoadingProgressBar" Height="20" Margin="10" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Visibility="Collapsed" />
+    </Grid>
+</Window>
